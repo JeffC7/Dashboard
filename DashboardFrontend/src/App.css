@@ -87,7 +87,7 @@ body {
 }
 
 .csv-data-table td:hover {
-  background-color: #e6f7ff; /* Light blue background on hover */
+  background-color: #e6f7ff; 
 }
 
 .csv-data-table input[type="text"] {
