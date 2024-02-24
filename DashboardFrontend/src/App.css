@@ -52,14 +52,6 @@ body {
   font-weight: 500;
 }
 
-/* .csv-data-table {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-} */
-
 /* CSS for CSV Data Table */
 .csv-data-table {
   display: flex;
