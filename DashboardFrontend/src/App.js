@@ -1,6 +1,8 @@
 import './App.css';
 import HomeScreen from './components/HomeScreen';
+import Statement from './components/Statement';
 import Dashboard from './components/Dashboard';
+
 import { useState } from 'react';
 
 function App() {
@@ -9,13 +11,14 @@ function App() {
 
     const handleCSVData = (data) => {
         setCsvData(data);
-        setCurrentScreen('dashboard');
+        setCurrentScreen('statement');
     }
 
     return (
         <div className="App">
             {currentScreen === 'home' && <HomeScreen onCSVData={handleCSVData} />}
-            {currentScreen === 'dashboard' && <Dashboard csvData={csvData} setCsvData={setCsvData} />}
+            {currentScreen === 'statement' && <Statement csvData={csvData} setCsvData={setCsvData} />}
+            {currentScreen === 'dashboard' && <Dashboard />}
         </div>
     );
 }
