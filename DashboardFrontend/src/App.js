@@ -6,7 +6,7 @@ import Dashboard from './components/Dashboard';
 import { useState } from 'react';
 
 function App() {
-    const [currentScreen, setCurrentScreen] = useState('home');
+    const [currentScreen, setCurrentScreen] = useState('dashboard');
     const [csvData, setCsvData] = useState([]);
 
     const handleCSVData = (data) => {
