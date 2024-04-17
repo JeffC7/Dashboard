@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-export default function Statement({ csvData, setCsvData}) {
+export default function Statement({ csvData, setCsvData, setDashboardData, setCurrentScreen}) {
 
     const [editingCell, setEditingCell] = useState(null);
 
@@ -45,6 +45,8 @@ export default function Statement({ csvData, setCsvData}) {
             });
 
             console.log(response.data);
+            setDashboardData(response.data);
+            setCurrentScreen('dashboard');
         }
         catch (error) {
             console.error('Error:', error);
