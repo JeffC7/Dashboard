@@ -45,11 +45,11 @@ export default function HomeScreen({ onCSVData }) {
             
                 <p className='upload-title'>Click on the "Choose File" button to upload a  CSV file:</p>
 
-                <form onSubmit={handleCSVUpload}>
-                    <input type="file" accept='.csv' />
-                    <input type="submit"/>
+                <form onSubmit={handleCSVUpload} className="custom-form">
+                    <label htmlFor="file-upload" className="custom-file-label">Choose CSV File</label>
+                    <input type="file" id="file-upload" accept=".csv" className="custom-file-input" />
+                    <button type="submit" className="custom-submit-button">Upload</button>
                 </form>
-
             </div>
         </div>
     );

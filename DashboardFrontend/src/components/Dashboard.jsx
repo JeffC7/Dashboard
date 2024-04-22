@@ -51,7 +51,31 @@ export default function Dashboard(props) {
 
     const freq_by_category_options = {
         legend: {position: 'none'},
+        hAxis: {format: 'short'},
     }
+
+    let freq_by_category = props.dashboardData[6];
+    freq_by_category = Object.entries(freq_by_category);
+    freq_by_category.sort((a, b) => b[1] - a[1]);
+    freq_by_category = freq_by_category.slice(0, 10);
+    freq_by_category = [
+        ["Category", "Frequency"],
+        ...freq_by_category
+    ]
+
+    const spending_by_category_options = {
+        legend: {position: 'none'},
+        hAxis: {format: 'short'},
+    }
+
+    let spending_by_category = props.dashboardData[7];
+    spending_by_category = Object.entries(spending_by_category);
+    spending_by_category.sort((a, b) => b[1] - a[1]);
+    spending_by_category = spending_by_category.slice(0, 10);
+    spending_by_category = [
+        ["Category", "Amount Spent"],
+        ...spending_by_category
+    ]
 
     return (
         <div className='dashboard-container'>
@@ -72,7 +96,7 @@ export default function Dashboard(props) {
                     </div>
                     <div className="panel">
                         <h2 className='title2'>Most Spent On:</h2>
-                        <div className='money-value'>{most_spent_on}</div>
+                        <div className='money-value2'>{most_spent_on}</div>
                     </div>
                 </div>
                 
@@ -99,11 +123,23 @@ export default function Dashboard(props) {
                     </div>
                     <div className="graph">
                         <h2 className='title3'>Frequency By Category:</h2>
-
+                        <Chart
+                            chartType="ColumnChart"
+                            width="100%"
+                            height="100%"
+                            data={freq_by_category}
+                            options={freq_by_category_options}
+                        />
                     </div>
                     <div className="graph">
                         <h2 className='title3'>Spendings By Category:</h2>
-
+                        <Chart
+                            chartType="ColumnChart"
+                            width="100%"
+                            height="100%"
+                            data={spending_by_category}
+                            options={spending_by_category_options}
+                        />
                     </div>
                 </div>
             </div>
